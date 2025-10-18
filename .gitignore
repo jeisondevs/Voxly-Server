@@ -1,1 +1,3 @@
 node_modules
+secret-config/voxly-firebase-sa.json
+secret-config/
