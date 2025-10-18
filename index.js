@@ -1,14 +1,22 @@
 import express from 'express';
+import notFound from './src/middlewares/not-found.js';
+import postbackRouter from './src/routes/postback.cpx.js';
+
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 5991;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-
+// Ruta raíz de comprobación
 app.get('/', (req, res) => {
-    res.json({ message: 'Bienvenido al servidor de Postback'});
+  res.json({ message: 'Bienvenido al servidor de Postback' });
 });
 
-import notFound from "./src/middlewares/not-found.js";
+// Montar router de CPX en un prefijo claro
+app.use('/cpx', postbackRouter);
+
+// Middleware 404
 app.use(notFound);
 
-app.listen(PORT, () => console.log('http://localhost:+{PORT}'));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
