@@ -1,0 +1,318 @@
+1 el package-lock.json es muy largo y no t lo puedo enviar si lo nesecitas me avisas si hay q modificar algo..
+
+2..nesesito q actues como un experto senior y me gies 1 paso a la nes y no envies todos los pasos al mismo tiempo.
+
+3 queremos proporcionar solo lo q pide cpx que es proporcionarle un URL del Postback Principal , ¿Cuál es el tipo de postback que utiliza cpx? es el
+Postback de servidor a servidor (GET)..
+
+4 queremos q mantengan
+
+http://localhost:5991/cpx su contenido puede cambiar a un mensaje si es nesesario, y la ruta q modificaremos para revibir el get de cpx es esta 
+
+http://localhost:5991/cpx/postback
+
+nota todo sera local ya despues desido si migrar a dashboard.render.com el cual esta vinculado al proyecto en github
+
+5 utilisaremos postman y visual studio code el cual ya esta corriendo el servider local de prueva, esta tal cual como t los acabo d enviar y asi mismo estan en el repositorio q t paso si puedes leerlos y ver su estructra para q estes al dia y puedas darme instrunciones claras q donde crear carpetas o archivos en mi pc o proyecto el cual esta en C:\Users\adrian\OneDrive\Documentos\postback-server\index.js
+
+C:\Users\adrian\OneDrive\Documentos\postback-server\src\routes\postbackcpx.js
+
+6 t paso un documento con contexto de donde puedes optener informasion q podemos nesecitar lo demas innoralo 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+esta seccion es para q la pueda leer todo agente ia como copilot y demas
+
+estas usando firebase firestore y auth para manejar usuarios y datos no tengo aseso a cloud functions asi  no lo ses 
+
+queremos integrar CPX Research en nuestra app de encuestas voxly en el 
+
+package com.jeidevs.voxly.presentation.earn SurveysPages.kt es la vista contenedora 
+
+package com.jeidevs.voxly.presentation.earn.integration SurveyManager.kt  es la clase q maneja la integracion y donde creo  esta la logica de boton de CPX Research
+
+¿Cuál es el CPI (Costo por Entrevista) promedio?
+El pago promedio es de alrededor 1,3$ CPI (costo por entrevista)
+¿Necesito tener una empresa registrada para utilizar su servicio?
+No, puede utilizar nuestra solución de encuestas para monetizar su sitio web/aplicaciones sin tener una empresa registrada.
+¿Tienen algún sistema antifraudes?
+Sí, contamos con varios mecanismos antifraude, comprobando huellas digitales, Cookies, IP y más. Así que los farsantes realmente no tienen ninguna posibilidad.
+¿Cuál es la comisión sugerida que se debe tomar?
+Cada encuesta paga una cantidad diferente. Recomendamos quedarse con el 30-50%. La tarifa la puedes configurar en tu cuenta de editor y también cambiarla cuando quiera por su cuenta.
+¿Porcentaje promedio de devoluciones/reversiones?
+Las devoluciones de cargo oscilan en su mayoría entre el 5 y el 10 % en general. Individualmente para un editor, depende de la calidad de la encuesta que realiza su base de usuarios.
+¿Cuánto tiempo tarda en recibir una devolución de cargo por las encuestas?
+¿Qué es el pago mínimo? Las devoluciones de cargos se realizan principalmente después de 45 a 60 días. Pero puede ser más corto o más largo dependiendo del socio.
+¿CPX acepta devoluciones de cargo/reversiones?
+Sí, recuperamos el importe de las encuestas revertidas.
+¿Dónde puedo ver los detalles de mis encuestas revertidas?
+Puede ver todas las encuestas canceladas en su cuenta de editor > estadísticas > completadas > haga clic en el botón "Filtro" en la esquina superior derecha y filtre por estado = rechazado. Tendrás los detalles de todas las encuestas revertidas dentro del período de tiempo seleccionado.
+Pago (4)
+¿Cuál es el pago mínimo?
+El pago mínimo es de 25 USD para Bank (Wire) y Paypal. Para Bitcoin el pago mínimo es de 100 USD. El pago se realiza automáticamente.
+¿No recibí mi pago? / ¿Quiero cancelar mi pago?
+Lo sentimos mucho, puede contactar a accounting@makeopinion.com con el correo electrónico de su editor. El equipo examinará su caso y los comentarios sobre su perfil. Asegúrese de agregar el número de factura si ya está creado para que podamos encontrar el pago.
+¿Cuándo necesito mi número de información tributaria?
+Necesitamos el número de información tributaria únicamente para Editores Europeos
+¿Cuándo se hacen los pagos? (Estándar)
+La factura del mes actual se crea el 15 del mes siguiente (la factura de enero se creará el 15 de febrero) y luego se pagará en NET30 (30 días después de la fecha de creación de una factura).
+Configuración de devolución de datos (11)
+¿Dónde puedo probar mi postback?
+1":2,"2":"you="" can="" test="" your="" posback="" with="" the="" red="" postback="" button="" ubicado="" on="" top="" right="" side="" in="" apps="">Puede probar su devolución de datos con este botón para comprobar si todo funciona sin problemas.
+¿Cuál es el tipo de postback que utilizamos?
+Postback de servidor a servidor (GET)
+¿Qué es un id de transacción?
+¿El ID de transacción es un ID único generado cada vez que un postback es llamado?
+¿Qué son Subid_1 y 2?
+Subid_1 y Subid_2 son parámetros extra de nosotros para el editor por si desea poner información extra en el postback.
+¿Qué es un md5 hash?
+Con el hash md5, su enlace de postback no se puede manipular ni cambiar. Es un proceso completo aunque muy típico pero, si no lo entiendes, es mejor que le pidas a un desarrollador que lo haga por ti.
+¿Se activarán tanto el postback de s2s como la redirección web al final de una encuesta?
+Nuestro sistema espera entre 5 y 10 segundos como máximo después de que se activa el postback.
+¿Qué son Amount_local y Amount_usd?
+Amount USD es lo que gana el editor & Amount local es lo que gana el usuario.
+¿Están el nombre de oferta (Offer Name) o ID de la Oferta (Offer ID) disponibles?
+Nosotros no tenemos un parámetro de Offername, pero tenemos un parámetro de OfferID que puede ser usado en el postback: &offer_id={offer_ID}
+Si llaman al postback para reversión, ¿la ID de transacción será la misma que el primer postback?
+Sí, llamamos al mismo postback con la misma trans ID con status=2
+¿Qué son los Ajustes de Experto?
+Si utiliza los ajustes expertos: 1. Si hay una encuesta completada, llamaremos al URL de postback (URL principal de postback) 2. Si hay una salida de pantalla, llamaremos al URL de salida de pantalla, pero hay dos posibilidades: => Ambos son llamados con el (URL de Postback de salida de pantalla). a) la salida de pantalla calificó para el bono que llamamos URL con 0.01 b) la salida de pantalla no calificó para un bono (llamamos a la URL con 0.00) - eso también es para evitar que los usuarios abusen del sistema de bonos o con muy mala calidad 3. Si el usuario completó una encuesta con éxito y la califica después de completarla, obtiene una bonificación de 0,01 y llamamos URL de postback de bonificación. 4. Si configura un postback de reconciliación (cancelado), llamamos a esta URL tan pronto como se revierte el proceso completo. (Evento de URL de postback cancelado)
+¿Por qué necesito configurar el URL de postback?
+Tienes que configurar el postback en tu cuenta de editor, esta es la forma en que "comunicamos" la información para la transferencia de la recompensa. Entonces nuestro servidor le dirá que el usuario 1234 obtuvo XX y, si recibe esta llamada de postback, podrá acreditar al usuario.
+Configuración de recompensas (3)
+¿Cuál es el factor de bonificación monetaria?
+Pagamos una bonificación de 0,01 USD por cada salida de pantalla (el usuario es redirigido a una encuesta y la inicia, pero no califica por algún motivo) y calificación de la encuesta (el usuario da su calificación después de completar con éxito la encuesta). Este bono se lo pagamos a usted y con la configuración del factor de bono de moneda, usted puede decidir cuál es el valor en función de la proporción de 1 USD en su moneda local. Ejemplo: si usa monedas y 1000 monedas tienen un valor de 1 USD en su sitio web, establecería el factor de bonificación en 1 USD = 1000 (monedas), de modo que el usuario obtenga 10 monedas por un bono de 0,01 USD. Siempre recomendamos no cobrar comisión por el bono y darle la recompensa del 100% al usuario para mantenerlo motivado.
+¿Qué es un factor de moneda?
+Es el valor de 1 USD en moneda local en tu página MENOS tu comisión. Por ejemplo: si 1 USD en su sitio web equivale a 1000 monedas y desea obtener una comisión del 40 % (para que el usuario gane el 60 %), establecería el factor de moneda en 1 USD = 600 monedas.
+¿Cómo puedo identificar un pago de bono?
+De hecho tenemos esta opción que puedes agregar para conocer el "tipo": &type={type} - puede estar “complete” o “out” Complete = Una encuesta exitosa y completa, eso está bastante claro. Out = Si amount_local (o amount_usd) es mayor que 0 y type=out, sabes que es un screenout con pago de bonificación (Recomendamos pasar el bono 100% al usuario, para mantenerlo motivado) - El monto de este bono de screenout es 0,01 USD. De lo contrario, si amount_local/amount_usd = 0 y type=out, es una salida de pantalla normal sin recompensa adicional para el usuario. Dependiendo de cómo integres/redirecciones: Hay un tipo más (type=bonus), esto es si un usuario tiene una encuesta completa (para lo cual llamamos una devolución de llamada) y si el usuario es redirigido a nosotros o con nuestro elemento de etiqueta de script en su página (donde podemos mostrar nuestro message_id) o de regreso a nuestra solución iframe, el usuario tiene la opción de calificar la encuesta y recibir otro bono de 0,01 USD por la calificación de la encuesta que se llamará con type=bonus.
+
+
+mis datos de cpx para la app de voxly
+
+Antes de publicar, debe ingresar una URL de postback. Vaya a la pestaña de ajustes de postback.
+INTEGRA NUESTRAS SOLUCIONES DE ENCUESTAS - Su App ID es: 29600
+La integración de nuestras diferentes soluciones de encuestas requiere una cantidad individual de habilidades de desarrollo, pero la elección también tiene una gran influencia en el resultado financiero. También se pueden combinar fácilmente diferentes soluciones entre sí. Si necesita ayuda, por favor contáctenos.
+
+IMPORTANTE: Por favor complete su URL de postback en la pestaña “ajustes del postback”; este es necesario para todas las soluciones y es clave para la comunicación entre CPX Research y su sitio web / aplicación.
+
+
+SDK móviles
+Móvil
+Nuestras SDKs (Disponibles para Android, iOS, Unity, Flutter, React / React Native) le garantizan la mejor intregación UX Para su aplicación móvil. mi aplicasion esta en kotlik con compose aqui no se si se podra usar dentro de mi app y si puedo elejir una de esas para usar y no hayga problemas seria Flutter
+
+Integración fácil 90%
+medio
+Experiencia de diseño 90%
+muy bien
+Experiencia del usuario 90%
+muy bien
+Tu ganancia 100%
+muy bien
+API
+Móvil + Web
+
+DOCUMENTACION
+
+https://github.com/MakeOpinionGmbH
+
+https://github.com/MakeOpinionGmbH/cpx-research-SDK-Android
+
+https://github.com/MakeOpinionGmbH/cpx-research-SDK-Flutter
+
+
+
+
+Integre nuestra integración de Web Frame
+La integración de nuestra SurveyWall FRAME es muy fácil. Simplemente copie el siguiente código y colóquelo en su sitio web. Hay varios marcadores de posición / parámetros con variables libres que tienen que ser reemplazados. IMPORTANTE: Por favor complete su URL de postback en la sección ajustes de postback. Eso es importante para informarle sobre la cantidad de dinero que ganan.
+
+Recomendamos utilizar nuestros elementos para etiquetas de script. Si quieres utilizar la integración del frame, nuestros editores pueden aumentar su ingresos en promedio 240% agregando nuestra etiqueta de script con el cuadro de notificación al pie de página, para que los usuarios automáticamente se informen tan pronto como haya una nueva encuesta que coincide con su perfil y esté disponible para ellos. Haga click aquí para que vea su Script
+Su Código:
+
+
+<iframe width="100%" frameBorder="0" height="2000px"  src="https://offers.cpx-research.com/index.php?app_id=29600&ext_user_id={unique_user_id}&secure_hash={secure_hash}&username={user_name}&email={user_email}&subid_1=&subid_2"></iframe>
+
+
+
+un ejemplo
+
+<iframe width="100%" frameBorder="0" height="2000px"  src="https://offers.cpx-research.com/index.php?app_id=29600&ext_user_id={unique_user_id}&secure_hash={secure_hash}&username={user_name}&email={user_email}&subid_1=&subid_2"></iframe>
+
+
+
+Parámetro                  Tipo         Descripción
+------------------------------------------------------------------------------------------
+&ext_user_id={único_usuario_id}   Obligatorio   Por favor reemplace {unique_user_id} con el ID de su usuario en su sitio. Este parámetro debe de ser único para cada usuario.
+
+&id_aplicación=29600              Obligatorio   Por favor agregue la ID de su aplicación. La ID de su aplicación es: 29600
+
+&secure_hash={secure_hash}        Recomendado   Para mayor seguridad, puede agregar el parámetro secure hash. Usted lo puede generar con su secure hash y su información del ext_user_id.
+(por ejemplo, para PHP: md5({unique_user_id}-{app_secure_hash}))
+
+&nombre de usuario=               Recomendado   Con el nombre del usuario del parámetro nos puede mandar el nombre de usuario de su usuario.
+
+&correo electrónico=              Recomendado   Podemos utilizar el email para encontrar usuarios duplicados en nuestro sistema. En caso de no mandar el email, le vamos a preguntar al usuario por él antes de que pueda empezar.
+
+&subid_1=                         Opcional      Puede agregar más información cuando la necesite.
+
+&subid_2=                         Opcional      Puede agregar más información cuando la necesite.
+
+
+
+
+Ejemplo de PHP :
+
+<iframe width="100%" frameBorder="0" height="2000px"  src="https://offers.cpx-research.com/index.php?app_id=29600&ext_user_id=<?php echo $user_id;?>&secure_hash=<?php echo md5($user_id.'-sdakkMISD33fpVjlIwDcKwJ6fqim3yIH);?>&username=<?php echo $user_name;?>&email=<?php echo $email;?>&subid_1=&subid_2"></iframe>
+
+
+
+
+
+INFORMACIÓN
+Por favor agregue su información básica. Nota: el logotipo tiene que ser de 168 x 25 píxeles. Permitimos formatos jpg, png o gif. Si tu plataforma principal es una combinación de dispositivos móviles (iOS / Android) y web, no necesitas crear una aplicación adicional, porque es importante usar solo una aplicación por base de datos de usuario.
+
+Modo de prueba
+Por favor active solo el modo prueba si sus usuarios no tienen acceso a la aplicación. Con modo de prueba activado usted poder probar su postback URL con acciones de demostración del usuario. Sólo abre el muro y usted verá diferentes botones para simular los escenarios principales como: un usuario ha logrado completar una encuesta con éxito, un usuario fue filtrado con / sin compensación. Recomendamos porbar el modo de prueba antes del lanzamiento.
+
+¿Confirmación de seguridad?
+Si la función está activada, tiene que haber una especie de contraseña añadida al muro de enlaces para evitar que los perfiles de los usuarios puedan ser accedidos cambiando la ID del usuario. Si habilitan esta función agreguen el siguiente parámetro: &secure_hash=md5($your_user_id.'-your_secure_hash)
+Importante: Por favor no olvide el - entre userID y hash
+
+Si quiere utilizar hashing, por favor contacte a alguien de nuestro equipo para activarlo via nuestro chat en vivo, email o comuníquese con su administrador personal de cuenta.
+
+
+no usaremos hashing y si se puede sin seguridad para empesar mejor
+
+
+App ID es: 29600
+
+
+Nombre de la aplicación: Voxly
+
+Modo de prueba: activo
+
+Número Máx. de completados en el modo de prueba: 500
+
+
+Modo de prueba ExtUserIds (, Ejemplo de lista separada 1,2,3): no se q poner en esta parte
+
+Modo de prueba IP (, lista separada ejemplo 1.1.1.1,1.2.3.4): no se q poner en esta parte, creo q pide mi ip para la prueba me confirmas
+
+Estado: Activo
+
+Plataforma principal: Androide
+
+Hash de seguridad: X25E4gVSJMenvpveDO3Il1qS38fQ7u2R
+
+
+
+
+
+Nombre de la moneda (singular): coint
+Nombre de la moneda (plural): coints
+
+Factor de la moneda: 1$ es igual a 600pts
+
+El factor de la moneda define cuánto gana un usuario en su moneda local (ver nombre de la moneda) por cada 1 USD que le pagamos a usted. Si tu moneda es “Monedas”, 1000 Monedas tienen un valor de 1 USD en su página y, quieren llevarse el 30% de comisión en el factor moneda, sería 1 USD = 700 (monedas).
+
+
+
+Factor de la moneda para el bonus : calcula y dale el 50% del bono ya q estamos empesando desde o y no tengo capital ya despues de 3 o 4 meses le damos el bono al 100$... le coloque 1$ es igual a 300 monedas no se si esta bien para q quedemos con el 50% me confirmas eso.
+
+
+¿Cómo puedo identificar un pago de bono?
+De hecho tenemos esta opción que puedes agregar para conocer el "tipo": &type={type} - puede estar “complete” o “out” Complete = Una encuesta exitosa y completa, eso está bastante claro. Out = Si amount_local (o amount_usd) es mayor que 0 y type=out, sabes que es un screenout con pago de bonificación (Recomendamos pasar el bono 100% al usuario, para mantenerlo motivado) - El monto de este bono de screenout es 0,01 USD. De lo contrario, si amount_local/amount_usd = 0 y type=out, es una salida de pantalla normal sin recompensa adicional para el usuario. Dependiendo de cómo integres/redirecciones: Hay un tipo más (type=bonus), esto es si un usuario tiene una encuesta completa (para lo cual llamamos una devolución de llamada) y si el usuario es redirigido a nosotros o con nuestro elemento de etiqueta de script en su página (donde podemos mostrar nuestro message_id) o de regreso a nuestra solución iframe, el usuario tiene la opción de calificar la encuesta y recibir otro bono de 0,01 USD por la calificación de la encuesta que se llamará con type=bonus.
+
+
+
+
+
+
+este campo parece el mas importante pero no se como llenarlo ya q no se como es eso asi q explicame q asemos hay y como lo optenemos
+
+
+
+Ajustes de postback
+Ejemplo: https://www.tu-dominio.com/file?status={status}&trans_id={trans_id}&user_id={user_id}&sub_id={subid}&sub_id_2={sub id_2}&amount_local={amount_local}&amount_usd={amount_usd}&offer_id={offer_ID}&hash={secure_hash}&ip_click={ip_click}
+
+URL del Postback Principal
+Importante: En caso de que un completado sea detectado como fraude (usualmente entre 15 - 60 días), vamos a llamar tu postback URL otra vez. Si el &status={status} es usado, el status va a cambiar a =2 en la segunda llamada. También recomendamos usar un ID de transición único en tu postback.
+INFORMACIÓN
+Por favor ingrese un URL Principal de Postback. Esta entrada es obligatoria. A este URL la llamamos cada vez que hay un nuevo evento creado (por ejemplo, usuario completa un encuesta, Usuario excluido, Usuario califica una encuesta). Cuando usted ingrese un postback de salida de pantalla en AJUSTES DE EXPERTO, esté URL ya no es llamado para una salida de pantalla.
+
+Puede usar los siguientes marcadores de posición:
+
+{estado} (1 = completado 2 = cancelado)
+{trans_id} (ID único)
+{user_id} (tu ID de usuario)
+{subid_1} (Su subId1)
+{subid_2} (Su subId2)
+{amount_local} cantidad en su moneda
+{amount_usd} cantidad en USD
+{ip_click} Click de Usuario IP
+{type} Escriba el regreso, completo o bonus
+secure_hash} aquí teníamos un hash con el que puedes validar la solicitud de que el hash es un md5 hash: ejemplo: md5({trans_id}-yourappsecurehash)
+
+IP de la lista blanca de devolución de datos: 188.40.3.73, 2a01:4f8:d0a:30ff::2 y 157.90.97.92
+
+Ajustes de Experto de Postback
+URL del Postback de Salida de Pantalla
+Bonus/calificación de Postback
+Evento de Postback URL Cancelado
+
+
+
+
+
+
+
+
+
+aqui tambien estoy sin conosimienta ya  es una app
+
+Tipo de redireccionamiento  estan estas 3 opciones  No Redirigir  / basico despues cierre el mensaje de usuario / directo yo apoyo al sistema ID importante leer informasion .... lo coloue en No Redirigir me avisas si nesecita cambio
+
+
+
+
+
+Ajustes de redireccionamiento (Experto)  creo q es opcional asi q mientras mas facil mejor, si puede quedar en no redirigido mejor
+
+
+URL de redireccionamiento
+https://offers.cpx-research.com/index.php?app_id={app_id}&ext_user_id={ext_user_id}&secure_hash={secure_hash}&subid_1={subid_1}&subid_2={subid_2}&cpx_message_id={message_id}
+INFORMACIÓN
+Aquí puede ingresar el URL al que debemos redirigir a su usuario una vez que haya terminado la encuesta. La mejor solución es redirigir al usuario de regreso a la página dónde está integrado nuestro muro en su sitio web. En la configuración básica, el usuario verá el mensaje de éxito/fracaso y será enviado al URL de redireccionamiento. Si no se ingresa ningún URL de redireccionamiento, la pestaña simplemente se cerrará.
+
+El sistema de ID de mensajes
+Es mejor si el usuario es redirigido de nuevo a su sitio después de una encuesta. Debe asegurarse que el usuario reciba el mensaje de éxito/fracaso; usted debe de integrar nuestro Sistema de ID de Mensajes. Esto suena muy complicado, pero es muy simple.
+
+Debe ingresar el marcador de posición {message_id} en el URL de redireccionamiento. En el URL a la que redireccionamos al usuario, hay que incluir nuestro frame en el que se añade nuevamente el ID del mensaje
+Ejemplo:
+1. el usuario puede ver el muro de encuestas en el dominio:your-domain.com/cpx-research.php
+
+2. Usas el URL como redireccionamiento:your-domain.com/cpx-research.php?message_id={message_id}
+
+3. Luego dirigiremos al usuario directamente a esa ubicación en una encuesta. Y tienes que incluir el siguiente frame: https://wall.cpx-research.com/index.php?app_id=10&ext_user_id=1&secure_hash=hashseedokumentation&username=&email=&subid_1=&subid_2&message_id=$_GET['message_id']">
+
+
+
+
+los campos faltantes q sean requeridos del usuario como su correo, username o id unico del usuario se toman de firestore auth y los demas datos de usuario de firestore
+
+pero para esta prueva podemos usar datos fijos para probar la integracion y despues si todo sale bien integramos con firestore auth y firestore me pides los datos q necesites de firestore auth y firestore 
+
+tolo lo demas q falte me dices y lo integro o t lo paso x el chat, enlistamelos en numero ejemplo 1 correo 2 username
+
+

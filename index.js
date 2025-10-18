@@ -1,6 +1,6 @@
 import express from 'express';
 import notFound from './src/middlewares/not-found.js';
-import postbackRouter from './src/routes/postback.cpx.js';
+import postbackRouter from './src/routes/postbackcpx.js';
 
 const app = express();
 const PORT = process.env.PORT || 5991;
